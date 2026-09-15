@@ -1,0 +1,6 @@
+[
+  {
+    "email": "admin@amfah.co.uk",
+    "password_hash": "replace-with-bcrypt-hash"
+  }
+]
