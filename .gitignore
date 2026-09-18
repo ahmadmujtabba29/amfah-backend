@@ -12,5 +12,4 @@ __pycache__/
 .ruff_cache/
 .coverage
 htmlcov/
-app/data/users.json
 
