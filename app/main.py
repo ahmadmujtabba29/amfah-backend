@@ -1,11 +1,13 @@
-from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-load_dotenv()
+from app.api.routes import auth, vigil
+from app.core.config import get_settings
+
+settings = get_settings()
 
 app = FastAPI(
-    title="AMFAH Backend API",
+    title=settings.app_name,
     description="Backend API for the AMFAH MVP platform.",
     version="0.1.0",
     docs_url="/docs",
@@ -20,6 +22,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(auth.router)
+app.include_router(vigil.router)
 
 
 @app.get("/", tags=["Health"])
